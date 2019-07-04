@@ -7,7 +7,7 @@ export function initConnection () {
     mongoose.Promise = global.Promise
 
     // # Open the mongoDB connection ##
-    mongoose.connect(config.MONGODB_URL, { useNewUrlParser: true })
+    mongoose.connect(config.mongoDBUrl, { useNewUrlParser: true })
 
     mongoose.set('useCreateIndex', true)
 
