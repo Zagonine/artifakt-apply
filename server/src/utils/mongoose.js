@@ -3,6 +3,9 @@ import config from '../config'
 
 export function initConnection () {
   return new Promise((resolve, reject) => {
+    // Do not connect to database when running test
+    if (process.env.NODE_ENV === 'test') return resolve()
+
     // Set native promise
     mongoose.Promise = global.Promise
 

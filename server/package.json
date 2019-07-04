@@ -7,7 +7,7 @@
     "start": "nodemon --inspect=9229 --exec babel-node src/app.js",
     "build": "babel src --out-dir dist",
     "serve": "node dist/app.js",
-    "test": "jest",
+    "test": "NODE_ENV=test jest",
     "lint": "eslint --ext .js --fix src/"
   },
   "author": "Enzo Gain <mail@enzogain.com>",
@@ -27,7 +27,8 @@
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.8.0",
     "mongodb-memory-server": "^5.1.5",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

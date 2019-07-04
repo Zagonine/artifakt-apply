@@ -8,7 +8,10 @@ import logger from './utils/logger'
 
 const app = express()
 
-app.use(morgan('dev'))
+// Do not log endpoints when running tests
+if (process.env.NODE_ENV !== 'test') {
+  app.use(morgan('dev'))
+}
 app.use(bodyParser.json())
 app.use(cors())
 
@@ -30,3 +33,5 @@ const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   logger.info('Server', `App listening on port ${PORT}`)
 })
+
+export default app

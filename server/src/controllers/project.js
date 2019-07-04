@@ -8,14 +8,14 @@ export default {
 
     if (!name || name.length > config.projectSchemaRestrictions.name.maxlength) {
       return res.status(400).json({
-        err: 'NameParamValidation',
+        err: 'NameValidationError',
         msg: `Body param "name" is required with a maximum length of ${config.projectSchemaRestrictions.name.maxlength} chars`
       })
     }
 
     if (!code || code.length > config.projectSchemaRestrictions.code.maxlength) {
       return res.status(400).json({
-        err: 'CodeParamValidation',
+        err: 'CodeValidationError',
         msg: `Body param "code" is required with a maximum length of ${config.projectSchemaRestrictions.name.maxlength} chars`
       })
     }

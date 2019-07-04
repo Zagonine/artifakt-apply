@@ -22,6 +22,7 @@ const projetSchema = new mongoose.Schema({
   toJSON: {
     transform: function (doc, ret) {
       ret.id = ret._id
+      ret.created_at = ret.created_at.getTime()
       delete ret._id
       delete ret.__v
     }
