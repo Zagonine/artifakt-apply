@@ -77,6 +77,18 @@ describe('POST /project', () => {
     done()
   })
 
+  it('it should trigger an error for code not alphanumeric', async (done) => {
+    const project = {
+      name: 'Test project',
+      code: '$code'
+    }
+    const res = await request.post(`/project`).send({ name: project.name, code: project.code })
+    expect(res.status).toBe(400)
+    expect(res.body.err).toBe('CodeValidationError')
+    expect(res.body.msg).toBe('Body param "code" must be an alphanumeric value')
+    done()
+  })
+
   it('it should trigger an error for code not unique', async (done) => {
     const project = {
       name: 'Test project',

@@ -1,22 +1,30 @@
 import config from '../config'
 import ProjectModel from '../models/ProjectModel'
 import logger from '../utils/logger'
+import stringUtils from '../utils/string'
 
 export default {
   createProject: (req, res) => {
     const { name, code } = req.body
 
-    if (!name || name.length > config.projectSchemaRestrictions.name.maxlength) {
+    if (!name || name.length === 0 || name.length > config.projectSchemaRestrictions.name.maxlength) {
       return res.status(400).json({
         err: 'NameValidationError',
         msg: `Body param "name" is required with a maximum length of ${config.projectSchemaRestrictions.name.maxlength} chars`
       })
     }
 
-    if (!code || code.length > config.projectSchemaRestrictions.code.maxlength) {
+    if (!code || code.length === 0 || code.length > config.projectSchemaRestrictions.code.maxlength) {
       return res.status(400).json({
         err: 'CodeValidationError',
         msg: `Body param "code" is required with a maximum length of ${config.projectSchemaRestrictions.name.maxlength} chars`
+      })
+    }
+
+    if (!stringUtils.isAlphaNumeric(code)) {
+      return res.status(400).json({
+        err: 'CodeValidationError',
+        msg: `Body param "code" must be an alphanumeric value`
       })
     }
 

@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import config from '../config'
+import stringUtils from '../utils/string'
 
 const projetSchema = new mongoose.Schema({
   name: {
@@ -12,7 +13,13 @@ const projetSchema = new mongoose.Schema({
     required: true,
     maxlength: config.projectSchemaRestrictions.code.maxlength,
     unique: true,
-    index: true
+    index: true,
+    validate: {
+      validator: (v) => {
+        return stringUtils.isAlphaNumeric(v)
+      },
+      message: 'Code must be an alphanumeric value'
+    }
   },
   created_at: {
     type: Date,

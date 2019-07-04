@@ -14,14 +14,14 @@ afterAll(() => { testDB.close() })
 describe('Project Model tests', () => {
   it('it should be a successful save', (done) => {
     const project = new ProjectModel({
-      code: 'test',
-      name: 'test'
+      name: 'test',
+      code: '01code09'
     })
 
     project.save((err) => {
       expect(err).toBeNull()
       expect(project._id.toString().length).toBe(24)
-      expect(project.code).toBe('test')
+      expect(project.code).toBe('01code09')
       expect(project.name).toBe('test')
       expect(typeof project.created_at).toBe('object')
       done()
@@ -76,6 +76,19 @@ describe('Project Model tests', () => {
       expect(err.name).toBe('ValidationError')
       expect(err.message).toContain('projects validation failed: code: Path `code`')
       expect(err.message).toContain('is longer than the maximum allowed length')
+      done()
+    })
+  })
+
+  it('it should trigger an error for code not an alphanumeric value', (done) => {
+    const project = new ProjectModel({
+      name: 'test',
+      code: '$code'
+    })
+    project.save((err) => {
+      expect(err).toBeTruthy()
+      expect(err.name).toBe('ValidationError')
+      expect(err.message).toBe('projects validation failed: code: Code must be an alphanumeric value')
       done()
     })
   })
