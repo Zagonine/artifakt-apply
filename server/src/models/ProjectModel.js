@@ -11,7 +11,8 @@ const projetSchema = new mongoose.Schema({
     type: String,
     required: true,
     maxlength: config.projectSchemaRestrictions.code.maxlength,
-    unique: true
+    unique: true,
+    index: true
   },
   created_at: {
     type: Date,
