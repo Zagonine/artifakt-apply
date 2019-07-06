@@ -1,0 +1,35 @@
+<div class="container">
+  <section class="w-100">
+    <h4>Project lists</h4>
+
+    <div *ngIf="error" class="alert alert-danger">
+      {{error}}
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Code</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td *ngIf="projectsList.length === 0" colspan="4" class="text-center text-muted">No project...</td>
+          </tr>
+          <tr *ngFor="let project of projectsList; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{project.name}}</td>
+            <td>{{project.code}}</td>
+            <td class="text-right">
+              <a href="" class="btn btn-sm btn-primary" style="margin-right: 10px;">Update</a>
+              <a href="" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </section>
+</div>
+
