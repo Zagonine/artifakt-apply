@@ -4,7 +4,7 @@ import logger from '../utils/logger'
 import stringUtils from '../utils/string'
 
 export default {
-  createProject: (req, res) => {
+  createProject (req, res) {
     const { name, code } = req.body
 
     if (!name || name.length === 0 || name.length > config.projectSchemaRestrictions.name.maxlength) {
@@ -51,5 +51,31 @@ export default {
         logger.error('createProject', 'Failed count project in order to know if not already taken', err)
         res.status(500).json({ err: 'FailedCheckUniqueCode', msg: 'Failed check "code" is unique' })
       })
+  },
+
+  updateProject (req, res) {
+    const project = req.project
+
+    const { name } = req.body
+
+    if (!name || name.length === 0 || name.length > config.projectSchemaRestrictions.name.maxlength) {
+      return res.status(400).json({
+        err: 'NameValidationError',
+        msg: `Body param "name" is required with a maximum length of ${config.projectSchemaRestrictions.name.maxlength} chars`
+      })
+    }
+
+    project.name = name
+
+    project.save((err) => {
+      if (err) {
+        logger.error('updateProject', 'Failed save project', err)
+        return res.status(500).json({ err: 'FailedSaveProject', msg: 'Failed save project' })
+      }
+
+      res.json({
+        project: project
+      })
+    })
   }
 }
