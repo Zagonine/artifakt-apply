@@ -36,6 +36,6 @@ export default {
   },
   close () {
     mongoose.disconnect()
-    mongoServer.stop()
+    return mongoServer.stop()
   }
 }

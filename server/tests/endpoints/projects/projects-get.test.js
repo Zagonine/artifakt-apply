@@ -32,7 +32,11 @@ afterEach(async (done) => {
   done()
 })
 
-afterAll(() => { testDB.close() })
+afterAll(async (done) => {
+  await testDB.close()
+  await app.close()
+  done()
+})
 
 describe('GET /projects', () => {
   it('it should be a successfull get projects', async (done) => {

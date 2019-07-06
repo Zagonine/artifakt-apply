@@ -12,7 +12,11 @@ afterEach(async (done) => {
   done()
 })
 
-afterAll(() => { testDB.close() })
+afterAll(async (done) => {
+  await testDB.close()
+  await app.close()
+  done()
+})
 
 describe('POST /project', () => {
   it('it should be a successfull creation of a project', async (done) => {

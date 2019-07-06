@@ -9,7 +9,9 @@ afterEach(async (done) => {
   done()
 })
 
-afterAll(() => { testDB.close() })
+afterAll(async () => {
+  await testDB.close()
+})
 
 describe('Project Model tests', () => {
   it('it should be a successful save', (done) => {

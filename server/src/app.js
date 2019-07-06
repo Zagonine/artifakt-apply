@@ -30,8 +30,8 @@ mongooseUtils
 
 const PORT = process.env.PORT || 3000
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   logger.info('Server', `App listening on port ${PORT}`)
 })
 
-export default app
+export default server

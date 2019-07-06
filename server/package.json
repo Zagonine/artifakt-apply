@@ -7,7 +7,7 @@
     "start": "nodemon --inspect=9229 --exec babel-node src/app.js",
     "build": "babel src --out-dir dist",
     "serve": "node dist/app.js",
-    "test": "NODE_ENV=test jest",
+    "test": "NODE_ENV=test jest --runInBand",
     "lint": "eslint --ext .js --fix src/"
   },
   "author": "Enzo Gain <mail@enzogain.com>",

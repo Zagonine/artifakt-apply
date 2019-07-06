@@ -26,7 +26,11 @@ afterEach(async (done) => {
   done()
 })
 
-afterAll(() => { testDB.close() })
+afterAll(async (done) => {
+  await testDB.close()
+  await app.close()
+  done()
+})
 
 describe('DELETE /project/:projectId', () => {
   it('it should be a successfull deletion', async (done) => {

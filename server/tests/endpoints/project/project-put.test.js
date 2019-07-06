@@ -27,7 +27,11 @@ afterEach(async (done) => {
   done()
 })
 
-afterAll(() => { testDB.close() })
+afterAll(async (done) => {
+  await testDB.close()
+  await app.close()
+  done()
+})
 
 describe('PUT /project/:projectId', () => {
   it('it should be a successfull update of a project', async (done) => {
