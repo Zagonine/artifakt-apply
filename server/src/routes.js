@@ -10,6 +10,7 @@ export default function (app) {
   app.post('/project', projectCtrl.createProject)
   app.get('/project/:projectId', projectCtrl.getProject)
   app.put('/project/:projectId', projectCtrl.updateProject)
+  app.delete('/project/:projectId', projectCtrl.deleteProject)
 
   // No route match
   app.use((req, res) => {

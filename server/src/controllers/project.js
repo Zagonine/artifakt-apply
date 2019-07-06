@@ -81,5 +81,15 @@ export default {
 
   getProject (req, res) {
     res.json({ project: req.project })
+  },
+
+  deleteProject (req, res) {
+    const { project } = req
+
+    project.delete((err) => {
+      if (err) return res.status(500).json({ err: 'FailedDeleteProject', msg: 'Failed delete project' })
+
+      res.status(200).json({ status: 'success', msg: 'Project deleted' })
+    })
   }
 }
