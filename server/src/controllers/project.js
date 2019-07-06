@@ -77,5 +77,9 @@ export default {
         project: project
       })
     })
+  },
+
+  getProject (req, res) {
+    res.json({ project: req.project })
   }
 }

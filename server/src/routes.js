@@ -8,6 +8,7 @@ export default function (app) {
 
   // Projects routing
   app.post('/project', projectCtrl.createProject)
+  app.get('/project/:projectId', projectCtrl.getProject)
   app.put('/project/:projectId', projectCtrl.updateProject)
 
   // No route match
