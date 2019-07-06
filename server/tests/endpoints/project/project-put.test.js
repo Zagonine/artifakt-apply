@@ -89,5 +89,4 @@ describe('PUT /project/:projectId', () => {
     expect(res.body.msg).toBe('Body param "name" is required with a maximum length of 64 chars')
     done()
   })
-
 })
