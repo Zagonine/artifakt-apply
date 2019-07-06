@@ -91,5 +91,19 @@ export default {
 
       res.status(200).json({ status: 'success', msg: 'Project deleted' })
     })
+  },
+
+  getProjects (req, res) {
+    ProjectModel
+      .find()
+      .then((projects) => {
+        res.json({
+          projects: projects
+        })
+      })
+      .catch((err) => {
+        logger.error('getProjects', 'Failed get all projects', err)
+        res.status(500).json({ err: 'FailedGetProject', msg: 'Failed get projects' })
+      })
   }
 }

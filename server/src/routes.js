@@ -12,6 +12,7 @@ export default function (app) {
   app.put('/project/:projectId', projectCtrl.updateProject)
   app.delete('/project/:projectId', projectCtrl.deleteProject)
 
+  app.get('/projects', projectCtrl.getProjects)
   // No route match
   app.use((req, res) => {
     return res.status(404).json({
