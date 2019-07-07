@@ -1,35 +1,37 @@
-<section class="w-100">
-  <h4>Project lists</h4>
+<div class="row justify-content-center">
+  <section class="col-md-8">
+    <h4>Project lists</h4>
 
-  <div *ngIf="error" class="alert alert-danger">
-    {{error}}
-  </div>
+    <div *ngIf="error" class="alert alert-danger">
+      {{error}}
+    </div>
 
-  <div class="text-right" style="margin-bottom: 10px;">
-    <a routerLink="/project/create" class="btn btn-success">Create a project</a>
-  </div>
-  <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Code</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngIf="projectsList.length === 0">
-          <td colspan="4" class="text-center text-muted">No project...</td>
-        </tr>
-        <tr *ngFor="let project of projectsList; let i = index">
-          <th scope="row">{{i+1}}</th>
-          <td>{{project.name}}</td>
-          <td>{{project.code}}</td>
-          <td class="text-right">
-            <a routerLink="/project/{{project.id}}/update" class="btn btn-sm btn-primary" style="margin-right: 10px;">Update</a>
-            <button (click)="deleteProject(project.id, index)" class="btn btn-sm btn-danger deleteProject">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-</section>
+    <div class="text-right" style="margin-bottom: 10px;">
+      <a routerLink="/project/create" class="btn btn-success">Create a project</a>
+    </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Code</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="projectsList.length === 0">
+            <td colspan="4" class="text-center text-muted">No project...</td>
+          </tr>
+          <tr *ngFor="let project of projectsList; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{project.name}}</td>
+            <td>{{project.code}}</td>
+            <td class="text-right">
+              <a routerLink="/project/{{project.id}}/update" class="btn btn-sm btn-primary" style="margin-right: 10px;">Update</a>
+              <button (click)="deleteProject(project.id, index)" class="btn btn-sm btn-danger deleteProject">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </section>
+</div>
