@@ -16,3 +16,8 @@
 
 # Run tests
 - `$ npm run test`
+
+# Others commands
+
+## Lint
+- `$ npm run lint`
