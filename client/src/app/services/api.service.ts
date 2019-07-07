@@ -14,4 +14,12 @@ export class ApiService {
   getProjectsList() {
     return this.http.get(`${API_URL}/projects`)
   }
+
+  getProjectById(projectId) {
+    return this.http.get(`${API_URL}/project/${projectId}`)
+  }
+
+  updateProject(projectId, project) {
+    return this.http.put(`${API_URL}/project/${projectId}`, project)
+  }
 }

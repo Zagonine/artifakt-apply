@@ -1,0 +1,14 @@
+<div class="w-100">
+  <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  <form *ngIf="!error && projectForm" [formGroup]="projectForm" (ngSubmit)="onSubmit(projectForm)" novalidate>
+    <legend>Update project</legend>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input formControlName="name" type="text" class="form-control" [ngClass]="{'is-invalid': name.invalid}">
+      <div class="invalid-feedback">Required with a maximum length of 64 chars</div>
+    </div>
+    <div class="text-right">
+      <button class="btn btn-success" type="submit" [disabled]="projectForm.invalid">Save</button>
+    </div>
+  </form>
+</div>

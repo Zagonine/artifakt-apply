@@ -17,7 +17,7 @@ export class ProjectsListComponent implements OnInit {
     this.apiService.getProjectsList().subscribe(
       (data: any) => this.projectsList = data.projects,
       error => {
-        this.error = error.error.msg || error.message || 'Failed retrieve projects'
+        this.error = error.error.msg || 'Failed retrieve projects'
       }
     )
   }
