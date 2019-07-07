@@ -28,11 +28,11 @@ export class CreateProjectComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(f) {
-    if (f.invalid) return
+  onSubmit() {
+    if (this.createProjectForm.invalid) return
     const project = {
-      name: f.value.name,
-      code: f.value.code
+      name: this.createProjectForm.value.name,
+      code: this.createProjectForm.value.code
     }
     this.apiService.createProject(project).subscribe(
       (data: any) => this.router.navigate(['/']),
