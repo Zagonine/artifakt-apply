@@ -17,26 +17,26 @@ describe('UpdateProjectComponent', () => {
       of(
         { project:
           {
-            id: "5d21e4f84557ae235c13d125",
-            name: "Acme Project",
-            code: "acme",
+            id: '5d21e4f84557ae235c13d125',
+            name: 'Acme Project',
+            code: 'acme',
             created_at: 1562502392047
           }
         }
       )
-    )
+    );
     const updateProjectsListSpy = apiServiceSpy.updateProject.and.returnValue(
       of(
         { project:
           {
-            id: "5d21e4f84557ae235c13d125",
-            name: "Acme Project",
-            code: "acme",
+            id: '5d21e4f84557ae235c13d125',
+            name: 'Acme Project',
+            code: 'acme',
             created_at: 1562502392047
           }
         }
       )
-    )
+    );
 
     TestBed.configureTestingModule({
       imports: [FormsModule, ReactiveFormsModule, RouterTestingModule],
@@ -57,16 +57,16 @@ describe('UpdateProjectComponent', () => {
   });
 
   it('should have prefilled value in name input', () => {
-    expect(component.projectForm.value.name).toBe("Acme Project")
-  })
+    expect(component.projectForm.value.name).toBe('Acme Project');
+  });
 
   it('should call onSubmit() when save form', () => {
     spyOn(component, 'onSubmit');
 
-    let form = fixture.debugElement.query(By.css('form'));
+    const form = fixture.debugElement.query(By.css('form'));
     form.triggerEventHandler('submit', null);
     fixture.detectChanges();
 
     expect(component.onSubmit).toHaveBeenCalledWith();
-  })
+  });
 });

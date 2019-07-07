@@ -13,7 +13,7 @@ describe('CreateProjectComponent', () => {
 
   beforeEach(async(() => {
     const apiServiceSpy = jasmine.createSpyObj('ApiService', ['createProject']);
-    const createProject = apiServiceSpy.createProject.and.returnValue( of({project:{}}) )
+    const createProject = apiServiceSpy.createProject.and.returnValue( of({project: {}}) );
 
     TestBed.configureTestingModule({
       imports: [FormsModule, ReactiveFormsModule, RouterTestingModule],
@@ -36,11 +36,11 @@ describe('CreateProjectComponent', () => {
   it('should call onSubmit() when save form', () => {
     spyOn(component, 'onSubmit');
 
-    let form = fixture.debugElement.query(By.css('form'));
+    const form = fixture.debugElement.query(By.css('form'));
     form.triggerEventHandler('submit', null);
     fixture.detectChanges();
 
     expect(component.onSubmit).toHaveBeenCalledWith();
-  })
+  });
 
 });

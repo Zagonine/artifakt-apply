@@ -10,24 +10,24 @@ export class ProjectsListComponent implements OnInit {
 
   constructor(private apiService: ApiService) {}
 
-  projectsList = []
-  error = null
+  projectsList = [];
+  error = null;
 
   ngOnInit() {
     this.apiService.getProjectsList().subscribe(
       (data: any) => this.projectsList = data.projects,
       error => {
-        this.error = error.error.msg || 'Failed retrieve projects'
+        this.error = error.error.msg || 'Failed retrieve projects';
       }
-    )
+    );
   }
 
   deleteProject(projectId, index) {
     this.apiService.deleteProject(projectId).subscribe(
       (data: any) => this.projectsList.splice(index, 1),
       error => {
-        this.error = error.error.msg || 'Failed delete project'
+        this.error = error.error.msg || 'Failed delete project';
       }
-    )
+    );
   }
 }
