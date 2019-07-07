@@ -26,4 +26,8 @@ export class ApiService {
   deleteProject(projectId) {
     return this.http.delete(`${API_URL}/project/${projectId}`)
   }
+
+  createProject(project) {
+    return this.http.post(`${API_URL}/project`, project)
+  }
 }

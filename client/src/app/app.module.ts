@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { ProjectsListComponent } from './components/projects-list/projects-list.component';
 import { ApiService } from './services/api.service';
 import { UpdateProjectComponent } from './components/update-project/update-project.component';
+import { CreateProjectComponent } from './components/create-project/create-project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectsListComponent,
-    UpdateProjectComponent
+    UpdateProjectComponent,
+    CreateProjectComponent
   ],
   imports: [
     BrowserModule,
