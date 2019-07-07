@@ -1,6 +1,6 @@
 <div class="w-100">
   <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-  <form *ngIf="!error && projectForm" [formGroup]="projectForm" (ngSubmit)="onSubmit(projectForm)" novalidate>
+  <form *ngIf="!error && projectForm" [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate>
     <legend>Update project</legend>
     <div class="form-group">
       <label for="name">Name</label>

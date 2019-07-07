@@ -37,10 +37,10 @@ export class UpdateProjectComponent implements OnInit {
 
   get name() { return this.projectForm.get('name'); }
 
-  onSubmit(f) {
-    if (f.invalid) return
+  onSubmit() {
+    if (this.projectForm.invalid) return
     const project = {
-      name: f.value.name
+      name: this.projectForm.value.name
     }
     this.apiService.updateProject(this.project.id, project).subscribe(
       (data: any) => this.router.navigate(['/']),
