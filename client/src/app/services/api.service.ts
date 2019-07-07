@@ -22,4 +22,8 @@ export class ApiService {
   updateProject(projectId, project) {
     return this.http.put(`${API_URL}/project/${projectId}`, project)
   }
+
+  deleteProject(projectId) {
+    return this.http.delete(`${API_URL}/project/${projectId}`)
+  }
 }

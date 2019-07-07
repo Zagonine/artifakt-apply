@@ -22,4 +22,12 @@ export class ProjectsListComponent implements OnInit {
     )
   }
 
+  deleteProject(projectId, index) {
+    this.apiService.deleteProject(projectId).subscribe(
+      (data: any) => this.projectsList.splice(index, 1),
+      error => {
+        this.error = error.error.msg || 'Failed delete project'
+      }
+    )
+  }
 }

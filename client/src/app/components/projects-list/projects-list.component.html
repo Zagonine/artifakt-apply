@@ -24,7 +24,7 @@
           <td>{{project.code}}</td>
           <td class="text-right">
             <a routerLink="/project/{{project.id}}/update" class="btn btn-sm btn-primary" style="margin-right: 10px;">Update</a>
-            <a href="" class="btn btn-sm btn-danger">Delete</a>
+            <button (click)="deleteProject(project.id, index)" class="btn btn-sm btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
