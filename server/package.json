@@ -1,0 +1,44 @@
+{
+  "name": "artifakt-apply-enzo-server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "nodemon --inspect=9229 --exec babel-node src/app.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/app.js",
+    "test": "NODE_ENV=test jest --runInBand",
+    "lint": "eslint --ext .js --fix src/"
+  },
+  "author": "Enzo Gain <mail@enzogain.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/node": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/runtime": "^7.5.0",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.8.0",
+    "mongodb-memory-server": "^5.1.5",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.3",
+    "morgan": "^1.9.1",
+    "winston": "^3.2.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}

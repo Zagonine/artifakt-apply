@@ -23,3 +23,8 @@ Your frontend must have :
 - A form with 2 fields (`name` and `code`) to create a project.
 - A form with 1 field (`name`) to update a project.
 - An action to delete a project.
+
+## Project setup
+
+- **Server**: instructions [here](server/README.md)
+- **Client**: instructions [here](client/README.md)
